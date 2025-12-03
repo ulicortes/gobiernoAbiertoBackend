@@ -1,4 +1,4 @@
-import { saludoDb } from "./model.js";
+import { listarArchivos, saludoDb } from "./model.js";
 import path from 'path';
 
 export const saludo = (req, res) => {
@@ -7,8 +7,9 @@ export const saludo = (req, res) => {
 }
 
 export const descargarArchivo = (req, res) => {
-    const pdf = path.join('haberes_agosto_2017.pdf');
-    res.download(pdf, 'haberes_agosto_2017.pdf', (err) => {
+    let {nombre} = req.params;
+    const pdf = path.join('./pdfs', `${nombre}.pdf`);
+    res.download(pdf, `${nombre}.pdf`, (err) => {
         if (err) {
             res.status(500).send({
                 message: "No se puede descargar el archivo. " + err,
@@ -19,4 +20,13 @@ export const descargarArchivo = (req, res) => {
             return res.status(500).send('Error interno del servidor al procesar la descarga.');
         }
     });
+}
+
+export const listado = async (req, res) => {
+    try {
+        const archivos = await listarArchivos();
+        return res.status(200).json(archivos);
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
 }
