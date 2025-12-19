@@ -1,4 +1,4 @@
-import { buscarArchivo_M, listarTodos_M } from "./model.js";
+import { buscarArchivo_M, listarTodos_M } from "../models/model_file.js";
 import path from 'path';
 
 export const buscarArchivo_S = async (seccion, nombre) => {

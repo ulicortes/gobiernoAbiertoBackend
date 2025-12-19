@@ -1,4 +1,4 @@
-import { buscarArchivo_S, listarArchivos_S } from './service.js';
+import { buscarArchivo_S, listarArchivos_S } from '../services/service_file.js';
 
 export const buscarArchivo_C = async (req, res) => {
     let { seccion, nombre } = req.params;
