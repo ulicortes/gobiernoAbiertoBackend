@@ -1,7 +1,8 @@
 import express from 'express';
-import {router as file} from './routes/route_file.js';
-import {router as user} from './routes/route_user.js';
+import { router as file } from './routes/route_file.js';
+import { router as user } from './routes/route_user.js';
 import bodyParser from 'body-parser';
+import RegexMiddleware from './middlewares/regex.js';
 
 const app = express();
 const port = 3000;
@@ -13,8 +14,8 @@ app.use(
   }),
 );
 app.use(file);
-app.use(user);
+app.use(RegexMiddleware, user);
 
 app.listen(port, () => {
-    console.log('El servidor esta escuchando en el puerto ' + port);  
+  console.log('El servidor esta escuchando en el puerto ' + port);
 })
