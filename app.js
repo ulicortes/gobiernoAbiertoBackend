@@ -3,9 +3,15 @@ import { router as file } from './routes/route_file.js';
 import { router as user } from './routes/route_user.js';
 import bodyParser from 'body-parser';
 import RegexMiddleware from './middlewares/regex.js';
+import rateLimit from 'express-rate-limit';
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
+const limiter = rateLimit({
+  windowMs: 15*60*1000,
+  limit: 100,
+  message: "Se llego al maximo de solicitudes. Intenta dentro de 15 minutos."
+});
 
 app.use(bodyParser.json());
 app.use(
@@ -13,7 +19,7 @@ app.use(
     extended: true,
   }),
 );
-app.use(file);
+app.use(limiter, file);
 app.use(RegexMiddleware, user);
 
 app.listen(port, () => {
