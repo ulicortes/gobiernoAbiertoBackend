@@ -15,8 +15,7 @@
 ### Flujo
 1. Se crea el pdf y se le pone un nombre caracteristico, Ese nombre va a la bbdd. 
 
-2. 
-  2. 1. El sistema se encarga de guardar todo:
+2. 2. 1. El sistema se encarga de guardar todo:
     2. 1. 1. Admin carga el pdf en el portal.
     2. 1. 2. El sistema guarda el pdf en un sitio fisico y retorna el path.
     2. 1. 3. Al paso 3.
