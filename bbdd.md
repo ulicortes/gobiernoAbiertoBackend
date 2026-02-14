@@ -20,7 +20,7 @@
     2. 1. 2. El sistema guarda el pdf en un sitio fisico y retorna el path.
     2. 1. 3. Al paso 3.
 
-  2. 2. Admin guarda en pdf en una carpeta dentro del servidor y obtiene el path con funciones de windows:
+2. 2. 2. Admin guarda en pdf en una carpeta dentro del servidor y obtiene el path con funciones de windows:
     2. 2. 1. Admin pone el pdf en una carpeta asignada para los pdfs.
     2. 2. 2. Se copia el path.
     2. 2. 3. Adentro del portal en el formulario de creacion pone el path como parametro.
